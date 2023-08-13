@@ -15,3 +15,14 @@ func RunQuery(query string) (*sql.Rows, error) {
 
 	return rows, nil
 }
+
+func RunQueryCount(query string) (int, error) {
+	var count int
+	err := mysql.MySQL.QueryRow(query).Scan(&count)
+	if err != nil {
+		log.Println("Query failed, err: ", err)
+		return 0, err
+	}
+
+	return count, nil
+}

@@ -8,7 +8,7 @@ import (
 )
 
 func HandleGetExample(c *gin.Context) (any, error) {
-	params, err := example.HandleGetExampleParams(c.Request.URL.Query())
+	params, err := example.HandleGetExampleParams(c)
 	if err != nil {
 		log.Errorf("get example params failed, err: %v", err)
 		return nil, err
